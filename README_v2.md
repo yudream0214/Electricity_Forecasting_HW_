@@ -157,8 +157,11 @@ X_Train為訓練數據，Ｙ_Train為label(備轉容量），並將10%數據做�
 def splitData(X,Y,rate)
 ```
 * 建立模型架構 
+
 ![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/LSTM_architecture_D15.png "LSTM_architecture")   
+
 * 損失函數表現  
+
 ![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/power_prediction_type_0.png "power_prediction_type_0.png")
 
 ### 命令參數
