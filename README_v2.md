@@ -43,12 +43,12 @@
 ### 數據相關性分析
 以python pandas來對整體數據進行探索性分析，並以圖表的形式來觀察數據之間的相關性。
 * 相關性混淆矩陣
-![GITHUB](https://github.com/vf19961226/Electricity-Forecasting-DSAI-HW1-/blob/main/figure/corr_all_heatmap.png "Corr All")  
+![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/corr_all_heatmap.png "Corr All")  
 可透過上面的圖表可以得知數據中個欄位之間的相關訊息(+: 正相關, -:負相關)
 如果只單一觀察[台灣電力公司_過去電力供需資訊]的資料欄位，可以發現出大多的特徵與預測目標(備轉容量)的相關性非常低。
 
 為此將特徵欄位藉由上述圖表進行第一次的特徵選擇，並加入是否為上班日的特徵進行相關性檢視。
-![GITHUB](https://github.com/vf19961226/Electricity-Forecasting-DSAI-HW1-/blob/main/figure/corr.png "Corr Value")  
+![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/corr.png "Corr Value")  
 由此圖可得知備轉容量該目標與[淨尖峰供電能力、尖峰負載]有非常高的相關性，而[淨尖峰供電能力、尖峰負載]與否為上班日有著一定的關係。
 
 ### 可視化圖表
@@ -75,13 +75,13 @@
 training data.csv的資料格式:
 
 | Date| Supply Power| Load Power | Temperature | Holiday
-| --- | :---: | :---: | :---:
-|20220223|33885|31318|0
-|20220224|33609|31098|0
-|20220225|33527|30121|0
-|20220226|31259|27822|2
-|20220227|29926|26196|2
-|20220228|31464|27337|2
+|:---:|:---:|:---:|:---:|:---:|
+|20220223|33885|31318|21.74403735|0
+|20220224|33609|31098|20.60402425|0
+|20220225|33527|30121|15.63952502|0
+|20220226|31259|27822|16.49920859|2
+|20220227|29926|26196|19.43096822|2
+|20220228|31464|27337|20.17672128|2
 
 
 ### 環境要求
