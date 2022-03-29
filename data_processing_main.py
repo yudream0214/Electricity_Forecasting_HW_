@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sun Mar 14 10:58:06 2021
 
-@author: vf19961226
-"""
 
 import argparse
 import csv
@@ -14,7 +10,7 @@ parser.add_argument("--data1",default="./data/台灣電力公司_過去電力供
 parser.add_argument("--data2",default="./data/本年度每日尖峰備轉容量率_2.csv",help="Input your power data.")
 parser.add_argument("--data3",default="./data/Weather_2/",help="Input your weather data.")
 parser.add_argument("--data4",default="./data/Holiday_2/csv/",help="Input your holiday data.")
-parser.add_argument("--output",default="./data/training_data_3.csv",help="Output your training data.")
+parser.add_argument("--output",default="./data/training_data_test.csv",help="Output your training data.")
 args=parser.parse_args()
 
 data=[]#建立空矩陣，之後用來儲存CSV檔中的資料

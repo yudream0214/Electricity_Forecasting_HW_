@@ -1,10 +1,7 @@
 # -*- coding: utf-8 -*-
-"""
-
-"""
-
 import pandas as pd
 import numpy as np
+import tensorflow as tf 
 from keras.models import Sequential
 from keras.layers import Dense, LSTM, TimeDistributed, Dropout
 from keras.callbacks import EarlyStopping
@@ -18,7 +15,6 @@ parser.add_argument("--predict_data_34",default="./data/predict_dataset_34.csv",
 parser.add_argument("--output",default="submission_34_type_2.csv",help="Output your predict data.")
 args=parser.parse_args()
 
-"""
 #匯入資料集
 train_data = pd.read_csv(args.data)
 #讀取前20條data
@@ -98,7 +94,7 @@ X_train, Y_train = buildTrain(train_norm,15, 15)
 
 X_train, Y_train, X_val, Y_val = splitData(X_train, Y_train, 0.1)
 
-model = buildManyToManyModel(X_train.shape, 2)
+model = buildManyToManyModel(X_train.shape, 0)
 callback = EarlyStopping(monitor="loss", patience=10, verbose=1, mode="auto")
 
 Y_train=np.reshape(Y_train,(Y_train.shape[0],Y_train.shape[1],1))
@@ -112,12 +108,12 @@ plt.title('model loss')
 plt.ylabel('loss')
 plt.xlabel('epoch')
 plt.legend(loc='upper right')
-fig.savefig("./figure/power_prediction_type_2.png")
+fig.savefig("./figure/power_prediction_type_a.png")
 
-model.save('./power_prediction_type_2.h5')
-"""
+model.save('./power_prediction_type_a.h5')
+
 from tensorflow.keras.models import load_model
-model = load_model('./power_prediction_type_2.h5') 
+model = load_model('./power_prediction_type_a.h5') 
 
 #predict_data = pd.read_csv(args.data)
 predict_data = pd.read_csv(args.predict_data_34)
