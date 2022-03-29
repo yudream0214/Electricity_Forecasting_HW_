@@ -14,7 +14,7 @@
 * 時間範圍：2019年1月1日至2022年2月28日
 * 地區：臺北市、新北市、桃園市、台中市、台南市、高雄市
 * 說明：台灣人口約70％集中於六個直轄市中（臺北市、新北市、桃園市、臺中市、臺南市、高雄市），在六個直轄市中各取一個氣象觀測站作為代表。由北至南分別為臺北 TAIPEI （466920）、板橋 BANQIAO （466880）、中壢 Zhongli （C0C700）、臺中 TAICHUNG （467490）、臺南 TAINAN （467410）、高雄 KAOHSIUNG （467440)。
-並依據當地人口數將氣溫加權平均，取得訓練用之平均氣溫。各地區人口數如下表所示，這些地區人口數約佔台灣總人口數七成，台灣總人口為23539588人。（統計至2022年2月）資料來源：[內政部統計處 內政統計查詢網](https://statis.moi.gov.tw/micst/stmain.jsp?sys=100)
+並依據當地人口數將氣溫加權平均，取得訓練用之平均氣溫。各地區人口數如下表所示，這些地區人口數約佔台灣總人口數七成，台灣總人口為23319776人。（統計至2022年2月）資料來源：[內政部統計處 內政統計查詢網](https://statis.moi.gov.tw/micst/stmain.jsp?sys=100)
 
 | Location| Population
 | --- | ---:
@@ -63,14 +63,19 @@
 #### 二.溫度時間可視化
 
 在時間範圍中各地氣溫大致呈現M形曲線。 
+
 ![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/Temperature_v2.png "Temperature")
 
 #### 三.是否為工作日與電力分布可視化
 
-觀察數據後發現工作日之系統運轉尖峰能力及系統瞬時負載明顯比非工作日高。
+觀察數據後發現工作日之系統運轉尖峰能力及系統瞬時負載明顯比非工作日高, 且部分數據會有呈現連續高峰約5天後再下降2天。
+此外下列三張圖表的時間段包含連假特性，更方便做觀察。
+
 ![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/Holiday.png "Holiday")
+
 ![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/尖峰負載_MW.png "尖峰負載")
-![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/淨尖峰供電能力_MW.png "淨尖峰供電能力")
+
+![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/淨尖峰供電能力_MW_.png "淨尖峰供電能力")
 
 ## 數據清洗
 依據上述可視化方法與相關性分析挑選出的特徵進行training data的建構。
