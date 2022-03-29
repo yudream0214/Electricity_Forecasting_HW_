@@ -11,28 +11,28 @@
 
 ### 天氣
 * 資料來源：[中央氣象局（觀測資料）]( https://e-service.cwb.gov.tw/HistoryDataQuery/index.jsp)
-* 時間範圍：2019年1月1日至2021年3月21日
+* 時間範圍：2019年1月1日至2022年2月28日
 * 地區：臺北市、新北市、桃園市、台中市、台南市、高雄市
 * 說明：台灣人口約70％集中於六個直轄市中（臺北市、新北市、桃園市、臺中市、臺南市、高雄市），在六個直轄市中各取一個氣象觀測站作為代表。由北至南分別為臺北 TAIPEI （466920）、板橋 BANQIAO （466880）、中壢 Zhongli （C0C700）、臺中 TAICHUNG （467490）、臺南 TAINAN （467410）、高雄 KAOHSIUNG （467440)。
 並依據當地人口數將氣溫加權平均，取得訓練用之平均氣溫。各地區人口數如下表所示，這些地區人口數約佔台灣總人口數七成，台灣總人口為23539588人。（統計至2022年2月）資料來源：[內政部統計處 內政統計查詢網](https://statis.moi.gov.tw/micst/stmain.jsp?sys=100)
 
 | Location| Population
 | --- | ---:
-|臺北市|2592878
-|新北市|4029493
-|桃園市|2269948
-|臺中市|2821464
-|臺南市|1873043
-|高雄市|2763057
-|Total|16349883
+|臺北市|2504597
+|新北市|3999305
+|桃園市|2269997
+|臺中市|2810285
+|臺南市|1858650
+|高雄市|2738002
+|Total|16180836
 
 ### 是否為工作日
 * 資料來源：[行政院人事行政總處（中華民國政府行政機關辦公日曆表）](https://data.gov.tw/dataset/14718)
-* 時間範圍：2019年（民國108年）至2021年（民國110年）
+* 時間範圍：2019年（民國108年）至2022年（民國111年）
 * 說明：紀錄台灣行政機關當日是否為工作日，資料中包含日期、星期、是否放假（0：否，2：是）以及備註。
 
 | 西元日期 |星期 |是否放假 | 備註
-| --- | --- | --- | --- :
+|:---:|---:|---:|---:
 |20220101|六|2|開國紀念日
 |20220102|日	|2|
 |20220103|一	|0|
@@ -54,28 +54,28 @@
 ### 可視化圖表
 由上入的相關性分析流程找出本案例所需的主要特徵，接續透過可視化圖表檢視數據分布情況，以利於後續的分析決策。
 
-#### 電力資料可視化
+#### 一.電力資料可視化
 資料中包含台灣每日各發電廠發電量與民生、工業用電量，進而推算淨尖峰供電能力、尖峰負載、備轉容量以及備轉容率。在時間範圍中系統運轉尖峰能力與系統瞬時負載大致呈現M形曲線。  
-![GITHUB](https://github.com/vf19961226/Electricity-Forecasting-DSAI-HW1-/blob/main/figure/Power_v2.png "Power")
+![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/Power_v2.png "Power")
 
-#### 溫度時間可視化
+#### 二.溫度時間可視化
 在時間範圍中各地氣溫大致呈現M形曲線。  
-![GITHUB](https://github.com/vf19961226/Electricity-Forecasting-DSAI-HW1-/blob/main/figure/Temperature_v2.png "Temperature")
+![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/Temperature_v2.png "Temperature")
 
-#### 是否為工作日與電力分布可視化
+#### 三.是否為工作日與電力分布可視化
 觀察數據後發現工作日之系統運轉尖峰能力及系統瞬時負載明顯比非工作日高。
-![GITHUB](https://github.com/vf19961226/Electricity-Forecasting-DSAI-HW1-/blob/main/figure/Holiday.png "Holiday")
-![GITHUB](https://github.com/vf19961226/Electricity-Forecasting-DSAI-HW1-/blob/main/figure/尖峰負載_MW.png "尖峰負載")
-![GITHUB](https://github.com/vf19961226/Electricity-Forecasting-DSAI-HW1-/blob/main/figure/淨尖峰供電能力_MW.png "淨尖峰供電能力")
+![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/Holiday.png "Holiday")
+![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/尖峰負載_MW.png "尖峰負載")
+![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/淨尖峰供電能力_MW.png "淨尖峰供電能力")
 
 ## 數據清洗
 依據上述可視化方法與相關性分析挑選出的特徵進行training data的建構。
-在實作上需去除掉用不到的特徵，如電力資料中各發電廠的發電量、天氣資料中測站位置資訊, 此數據前處理的程序會建構在[**data_processing_main.py**](https://github.com/vf19961226/Electricity-Forecasting-DSAI-HW1-/blob/main/data_processing_main.py)去除不需要的數據，並將其整合為[**training_data_3.csv**](https://github.com/vf19961226/Electricity-Forecasting-DSAI-HW1-/blob/main/data/training_data_3.csv)輸出以方便後續訓練，其中包含日期、尖峰電量、負載電量、加權後之氣溫以及是否為工作日。  
+在實作上需去除掉用不到的特徵，如電力資料中各發電廠的發電量、天氣資料中測站位置資訊, 此數據前處理的程序會建構在[**data_processing_main.py**](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/data_processing_main.py)去除不需要的數據，並將其整合為[**training_data_3.csv**](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/data/training_data_3.csv)輸出以方便後續訓練，其中包含日期、尖峰電量、負載電量、加權後之氣溫以及是否為工作日。  
 
 training data.csv的資料格式:
 
 | Date| Supply Power| Load Power | Temperature | Holiday
-|:---:|:---:|:---:|:---:|:---:|
+|:---:|---:|---:|---:|---:
 |20220223|33885|31318|21.74403735|0
 |20220224|33609|31098|20.60402425|0
 |20220225|33527|30121|15.63952502|0
@@ -98,30 +98,30 @@ training data.csv的資料格式:
 |Name|Input|Default
 |:---:|---|---
 |--data1|電力資料|./data/台灣電力公司_過去電力供需資訊_All_2.csv
-|--data2|至2021年3月21日之備載容量|./data/本年度每日尖峰備轉容量率_2.csv
+|--data2|至2022年2月28日之備載容量|./data/本年度每日尖峰備轉容量率_2.csv
 |--data3|天氣資料所在資料夾|./data/Weather_2/
 |--data4|辦公日曆表所在資料夾|./data/Holiday_2/
-|--output|輸出資料位置與名稱|./data/training_data_3.csv
+|--output|輸出資料格式(訓練資料)|./data/training_data_3.csv
 
 可於直接於終端機中執行以下指令，並將參數改成你的參數，或是直接使用我們的預設值而不輸入參數。  
 
     python data_processing.py --data1 "your power data" --data2 "your operating reserve data" --data3 "your weather data" --data4 "your holiday data" --output "your output data"
 ### 輸出
-輸出之[**training_data.csv**](https://github.com/vf19961226/Electricity-Forecasting-DSAI-HW1-/blob/main/data/training_data_3.csv)格式如下表所示。
+輸出之[**training_data.csv**](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/data/training_data_3.csv)格式如下表所示。
 
 | Date| Supply Power| Load Power | Temperature | Holiday
-| --- | :---: | :---: | :---:
-|20220223|33885|31318|0
-|20220224|33609|31098|0
-|20220225|33527|30121|0
-|20220226|31259|27822|2
-|20220227|29926|26196|2
-|20220228|31464|27337|2
+|:---:|---:|---:|---:|---:
+|20220223|33885|31318|21.74403735|0
+|20220224|33609|31098|20.60402425|0
+|20220225|33527|30121|15.63952502|0
+|20220226|31259|27822|16.49920859|2
+|20220227|29926|26196|19.43096822|2
+|20220228|31464|27337|20.17672128|2
 
 
 
 ## 建立預測模型
-利用上述整理好的[**training_data.csv**](https://github.com/vf19961226/Electricity-Forecasting-DSAI-HW1-/blob/main/data/training_data.csv)於[**app.py**](https://github.com/vf19961226/Electricity-Forecasting/blob/main/app.py)中進行模型訓練與預測。在[**app.py**](https://github.com/vf19961226/Electricity-Forecasting/blob/main/app.py)中將數據進行正規化後切割成訓練與測試兩組，使用長短期記憶（Long Short-Term Memory，LSTM）建立一預測模型，用以預測未來14天之電力備轉容量。
+利用上述整理好的[**training_data_3.csv**](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/data/training_data_3.csv)於[**app_main.py**](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/app_main.py)中進行模型訓練與預測。在[**app.py**](https://github.com/vf19961226/Electricity-Forecasting/blob/main/app.py)中將數據進行正規化後切割成訓練與測試兩組，使用長短期記憶（Long Short-Term Memory，LSTM）建立一預測模型，用以預測未來14天之電力備轉容量。
 
 ### 環境要求
 | Name| Version
@@ -148,9 +148,9 @@ X_Train為訓練數據，Ｙ_Train為label(備轉容量），並將10%數據做�
 def splitData(X,Y,rate)
 ```
 * 建立模型架構 
-![GITHUB](https://github.com/vf19961226/Electricity-Forecasting/blob/main/figure/LSTM_architecture.png "LSTM_architecture")   
+![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/LSTM_architecture.png "LSTM_architecture")   
 * 損失函數表現  
-![GITHUB](https://github.com/vf19961226/Electricity-Forecasting/blob/main/figure/power_prediction.png "power_prediction_type_0.png")
+![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/power_prediction.png "power_prediction_type_0.png")
 
 ### 命令參數
 
@@ -166,14 +166,23 @@ def splitData(X,Y,rate)
     python app.py --data "your training data" --predict_data_34 "your predict data" --output "your output data"
 
 ### 預測結果
-最終預測結果輸出為[**submission.csv**](https://github.com/vf19961226/Electricity-Forecasting/blob/main/submission.csv)，其內容如下表所示。
+最終預測結果輸出為[**submission.csv**](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/submission.csv)，其內容如下表所示。
 
 | Date	| Operating Reserve(MW)
 |---|:---:
-|20210323	|3004.835
-|20210324	|3026.092
-|20210325	|3070.138
-|20210326	|3051.111
-|20210327	|3004.584
-|20210328	|2934.29
-|20210329	|2893.141
+|20220330|2955.505
+|20220331|2990.3035
+|20220401|3015.513
+|20220402|3030.107
+|20220403|3005.2974
+|20220404|2970.9314
+|20220405|2937.195
+|20220406|2917.7432
+|20220407|2925.5376
+|20220408|2948.712
+|20220409|2989.157
+|20220410|2982.6519
+|20220411|2940.2656
+|20220412|2927.378
+|20220413|2963.7002
+
