@@ -179,6 +179,24 @@ def splitData(X,Y,rate)
 * predict_data_all = 為所有training的數據
 
 預設為predict_data_34，目的使模型可以透過前幾年的連續假期特性, 來預測本年度備轉容量分布
+如下表 : 
+| Date | Holiday
+|:---:|---:
+|20220330|0
+|20220331|0
+|20220401|0
+|20220402|2
+|20220403|2
+|20220404|2
+|20220405|2
+|20220406|0
+|20220407|0
+|20220408|0
+|20220409|2
+|20220410|2
+|20220411|0
+|20220412|0
+|20220413|0
 
     python app.py --data "your training data" --output "your output data"
     python app.py --data "your training data" --predict_data_34 "your predict data" --output "your output data"
