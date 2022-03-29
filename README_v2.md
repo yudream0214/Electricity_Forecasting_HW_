@@ -55,14 +55,18 @@
 由上入的相關性分析流程找出本案例所需的主要特徵，接續透過可視化圖表檢視數據分布情況，以利於後續的分析決策。
 
 #### 一.電力資料可視化
-資料中包含台灣每日各發電廠發電量與民生、工業用電量，進而推算淨尖峰供電能力、尖峰負載、備轉容量以及備轉容率。在時間範圍中系統運轉尖峰能力與系統瞬時負載大致呈現M形曲線。  
+
+資料中包含台灣每日各發電廠發電量與民生、工業用電量，進而推算淨尖峰供電能力、尖峰負載、備轉容量以及備轉容率。在時間範圍中系統運轉尖峰能力與系統瞬時負載大致呈現M形曲線。
+
 ![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/Power_v2.png "Power")
 
 #### 二.溫度時間可視化
-在時間範圍中各地氣溫大致呈現M形曲線。  
+
+在時間範圍中各地氣溫大致呈現M形曲線。 
 ![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/Temperature_v2.png "Temperature")
 
 #### 三.是否為工作日與電力分布可視化
+
 觀察數據後發現工作日之系統運轉尖峰能力及系統瞬時負載明顯比非工作日高。
 ![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/Holiday.png "Holiday")
 ![GITHUB](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/figure/尖峰負載_MW.png "尖峰負載")
