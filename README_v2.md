@@ -52,7 +52,7 @@
 由此圖可得知備轉容量該目標與[淨尖峰供電能力、尖峰負載]有非常高的相關性，而[淨尖峰供電能力、尖峰負載]與否為上班日有著一定的關係。
 
 ### 可視化圖表
-由上入的相關性分析流程找出本案例所需的主要特徵，接續透過可視化圖表檢視數據分布情況，以利於後續的分析決策。
+由上述的相關性分析流程找出本案例所需的主要特徵，接續透過可視化圖表檢視數據分布情況，以利於後續的分析決策。
 
 #### 一.電力資料可視化
 
@@ -169,10 +169,16 @@ def splitData(X,Y,rate)
 |Name|Input|Default
 |:---:|---|---
 |--data|訓練資料|./data/training_data.csv
+|--predict_data_all|預測期間資料|./data/predict_all.csv
 |--predict_data_34|預測期間資料|./data/predict_dataset_34.csv
 |--output|輸出預測結果|submission.csv
 
-可於直接於終端機中執行以下指令，並將參數改成你的參數，或是直接使用我們的預設值而不輸入參數。  
+可於直接於終端機中執行以下指令，並將參數改成你的參數，或是直接使用我們的預設值而不輸入參數。
+其中--predict_data_34 或 --predict_data_all兩者選擇一個預測區間
+* predict_data_34 = 該預測區間為2019年至2021年的 掃墓連假 期間數據 
+* predict_data_all = 為所有training的數據
+
+預設為predict_data_34，目的使模型可以透過前幾年的連續假期特性, 來預測本年度備轉容量分布
 
     python app.py --data "your training data" --output "your output data"
     python app.py --data "your training data" --predict_data_34 "your predict data" --output "your output data"
