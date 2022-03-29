@@ -116,7 +116,7 @@ training data.csv的資料格式:
 
     python data_processing.py --data1 "your power data" --data2 "your operating reserve data" --data3 "your weather data" --data4 "your holiday data" --output "your output data"
 ### 輸出
-輸出之[**training_data.csv**](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/data/training_data_3.csv)格式如下表所示。
+輸出之[**training_data_3.csv**](https://github.com/yudream0214/Electricity_Forecasting_HW_1/blob/main/data/training_data_3.csv)格式如下表所示。
 
 | Date| Supply Power| Load Power | Temperature | Holiday
 |:---:|---:|---:|---:|---:
